@@ -10,58 +10,40 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-
 @SuppressWarnings("serial")
 @WebServlet("/main")
-
 public class Main extends HttpServlet {
-	
-   @Override
-   public void doGet(HttpServletRequest request, HttpServletResponse response)
-		  throws ServletException, IOException{
-						// Set response content type and return an error message
-						response.setContentType("application/json");
-						PrintWriter out = response.getWriter();
-						out.println("{ 'message' : 'Use POST!'}");
-				}
-    @Override
-	public void doPost(HttpServletRequest request,HttpServletResponse response)
-		   throws ServletException, IOException {
-		// Get received JSON data from HTTP request
-	    try {
-		  BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
-	      String jsonStr = "";
-	      
-	      if(br != null){
-	          jsonStr = br.readLine();
-	      }
-	      
-	      String output = new Worker().work(jsonStr);
-	      
-	      
-	       if(output == null) {
-	    	  response.setContentType("application/json");
-		       PrintWriter out = response.getWriter();
-		       out.println("{ \"message\" : " + "Malformed JSON"+ "}");
-	      }
-	      
-	      else {
-	    	  
-	    	  response.setContentType("application/json");
-		       PrintWriter out = response.getWriter();
-		       out.println(output);
-	    	  
-	      }
-	      
-	    }catch(Exception e) {
-	    	response.setContentType("application/json");
-	         PrintWriter out = response.getWriter();
-	         out.println("{ \"message\" : " + "Malformed JSON"+ "}");
-	    }
-		
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+		// Set response content type and return an error message
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		out.println("ERR");
 	}
-
-	
-	
-	
+	@Override
+	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		// Get received JSON data from HTTP request
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
+			String jsonStr = "";
+			if(br != null){
+				jsonStr = br.readLine();
+	      		}
+			String output = new Worker().work(jsonStr);
+			if(output == null) {
+				response.setContentType("application/json");
+				PrintWriter out = response.getWriter();
+				out.println("ERR");
+			}
+			else {
+				response.setContentType("application/json");
+				PrintWriter out = response.getWriter();
+				out.println(output);
+	      		}
+		}catch(Exception e) {
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			out.println("ERR");
+		}
+	}
 }
