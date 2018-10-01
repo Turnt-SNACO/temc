@@ -1,0 +1,11 @@
+#!/bin/bash
+get_key () {
+	curl "$1" -X POST "http://nascloud.myds.me:8080/Temc/main"
+}
+if [ ! -z "$2" ]
+then
+	get_key
+else
+	echo "Not enough arguments!"
+	echo "Proper use: temc <recipient> <message>"
+fi
