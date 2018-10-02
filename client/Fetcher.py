@@ -2,7 +2,7 @@ import time
 from subprocess import Popen, PIPE, STDOUT, call
 import sys
 import os
-URL = "http://nascloud.myds.me:8080/Temc/main"
+URL = "http://nascloud.myds.me:8080/Temc/fetch"
 uname = ""
 exists = os.path.isfile('.temcrc')
 if exists:
@@ -24,7 +24,7 @@ if pid == 0:
         cmd = 'curl -s -d "'+uname+'" -X POST "'+URL+'"'
         p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         output = p.stdout.read()
-        call(['clear'])
+        #call(['clear'])
         print("New message:", output.decode('UTF-8'))
 else:
     print('parent done')
