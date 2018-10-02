@@ -13,13 +13,13 @@ public class PrepMsg {
 //			//System.out.println(temp);
 //		}
 	
-		public ArrayList<String> prep(String jsonStr) {
+		public String prep(String jsonStr) {
 			Gson gson = new Gson();
 			System.out.println(jsonStr);
 			DataOut message = gson.fromJson(jsonStr, DataOut.class);
 			try{
 				File file = new File("messages/"+message.getRec());
-				BufferedReader br = ne:w BufferedReader(new FileReader(file));
+				BufferedReader br = new BufferedReader(new FileReader(file));
 				return br.readLine();
 			} catch (Exception e) {
 				return null;
