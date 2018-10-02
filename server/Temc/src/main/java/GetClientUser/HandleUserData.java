@@ -1,10 +1,10 @@
-package serv;
+package GetClientUser;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 import com.google.gson.*;
 
-public class Worker {
+public class HandleUserData {
 	public String work(String jsonStr) {
 		Gson gson = new Gson();
 		System.out.println(jsonStr);

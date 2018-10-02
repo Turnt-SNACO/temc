@@ -1,6 +1,6 @@
-package receive;
+package SendMsg;
 
-public class DataIn {
+public class DataOut {
 	private String rec;
 	private String msg;
 	public String getRec(){

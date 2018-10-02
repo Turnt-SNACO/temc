@@ -1,13 +1,13 @@
-package receive;
+package GetClientMsg;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 import com.google.gson.*;
 
-public class Receiver {
+public class HandleClientMsg {
 		public static void main(String args[]) {
 			String jsonStr = "{ \"rec\": \"rob\", \"msg\": \"poop\" }";
-			new Receiver().work(jsonStr);
+			new HandleClientMsg().work(jsonStr);
 			//System.out.println(temp);
 		}
 		public String work(String jsonStr) {
