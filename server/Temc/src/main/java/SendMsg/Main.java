@@ -31,7 +31,8 @@ public class Main extends HttpServlet {
 		if(br != null){
 	        	jsonStr = br.readLine();
 		}
-		String output = new PrepMsg().prep(jsonStr);
+		String realpath = getServletContext().getRealPath("");
+		String output = new PrepMsg().prep(jsonStr,realpath);
 		if(output == null) {
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
