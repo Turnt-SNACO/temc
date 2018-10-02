@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 @SuppressWarnings("serial")
-@WebServlet("/getServ") 
+@WebServlet("/getMessage") 
 public class Main extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -38,7 +38,7 @@ public class Main extends HttpServlet {
 			//changed output error to ERR for client side handling
 			out.println("ERR");
 		}
-		else {
+		else {		
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
 			out.println(output);

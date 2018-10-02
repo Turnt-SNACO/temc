@@ -1,12 +1,12 @@
 package SendMsg;
 
 public class DataOut {
-	private String rec;
 	private String msg;
-	public String getRec(){
-		return rec;
-	}
+	private String rec;
 	public String getMsg() {
 		return msg;
+	}
+	public String getRec() {
+		return rec;
 	}
 }
