@@ -1,10 +1,15 @@
 #!/bin/bash
 get_key () {
-	curl "$1" -X POST "http://nascloud.myds.me:8080/Temc/main"
+	curl -d "$1" -X POST "http://nascloud.myds.me:8080/Temc/main"
 }
 if [ ! -z "$2" ]
 then
-	get_key
+	if [[ $1 = "setkey" ]]
+	then
+		curl -d "$2 $3" -X POST "http://nascloud.myds.me:8080/Temc/setkey"
+	else
+		get_key
+	fi
 else
 	echo "Not enough arguments!"
 	echo "Proper use: temc <recipient> <message>"
