@@ -21,7 +21,7 @@ pid = os.fork()
 if pid == 0:
     for i in range(5):
         time.sleep(1)
-        cmd = 'curl -s -d "'+uname+'" -X POST "'+URL+'"'
+        cmd = 'curl -s -d \'{"rec":'+uname+'", "sender": "all", "message":"any"}\' -X POST "'+URL+'"'
         p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         output = p.stdout.read()
         #call(['clear'])
