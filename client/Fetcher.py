@@ -2,7 +2,7 @@ import time
 from subprocess import Popen, PIPE, STDOUT, call
 import sys
 import os
-URL = "http://nascloud.myds.me:8080/Temc/fetch"
+URL = "http://nascloud.myds.me:8080/Temc/getMessage"
 uname = ""
 exists = os.path.isfile('.temcrc')
 if exists:
