@@ -30,7 +30,7 @@ public class HandleClientMsg {
 			    writer.close();
 			}
 			catch(Exception IOException ) {
-				return "ERR";
+				return "File IO ERR";
 			}
 			
 			return "Msg Stored";
