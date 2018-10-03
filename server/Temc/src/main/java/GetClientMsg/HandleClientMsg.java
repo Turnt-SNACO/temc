@@ -25,7 +25,7 @@ public class HandleClientMsg {
 				DataIn in = gson.fromJson(jsonStr, DataIn.class);
 			   // String fileName = "World";
 				//TODO: add support for windows 
-				String msgFolder = "messages\\"; 
+				String msgFolder = "messages/"; 
 				File temp = new File(realPath+msgFolder);
 				if(!temp.exists()) {
 					temp.mkdir();
