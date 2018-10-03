@@ -17,19 +17,19 @@ public class HandleClientMsg {
 			Gson gson = new Gson();
 			System.out.println(jsonStr);
 			DataIn in = gson.fromJson(jsonStr, DataIn.class);
-			System.out.println(in.getMsg());
 			
 			try {
 			   // String fileName = "World";
-				String msgFolder = "messages/"; 
+				//TODO: add support for windows 
+				String msgFolder = "messages\\"; 
 				File temp = new File(realPath+msgFolder);
 				if(!temp.exists()) {
 					temp.mkdir();
 				}
-				String location = realPath +msgFolder+ in.getRec(); // writes to the messages folder to a file name by the recipient.
+				String location = realPath + msgFolder+ in.getRec(); // writes to the messages folder to a file name by the recipient.
 			    System.out.println("this is " + location);
 				BufferedWriter writer = new BufferedWriter(new FileWriter(location, true));
-			    
+			    writer.append(in.getSender()+",");
 			    writer.append(in.getMsg());
 			    writer.append("\n");
 			    writer.close();
