@@ -3,6 +3,7 @@ package GetClientMsg;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import com.google.gson.*;
@@ -14,11 +15,14 @@ public class HandleClientMsg {
 			//System.out.println(temp);
 		}
 		public String work(String jsonStr, String realPath) {
-			Gson gson = new Gson();
-			System.out.println(jsonStr);
-			DataIn in = gson.fromJson(jsonStr, DataIn.class);
+//			Gson gson = new Gson();
+//			System.out.println(jsonStr);
+//			DataIn in = gson.fromJson(jsonStr, DataIn.class);
 			
 			try {
+				Gson gson = new Gson();
+				System.out.println(jsonStr);
+				DataIn in = gson.fromJson(jsonStr, DataIn.class);
 			   // String fileName = "World";
 				//TODO: add support for windows 
 				String msgFolder = "messages\\"; 
@@ -34,10 +38,13 @@ public class HandleClientMsg {
 			    writer.append("\n");
 			    writer.close();
 			}
-			catch(Exception IOException ) {
-				System.out.println( IOException.getStackTrace().toString());
+			catch(IOException e) {
+				System.out.println( e.getStackTrace().toString());
 				System.out.println(realPath);
 				return "File IO ERR";
+			}
+			catch(JsonParseException e ) {
+				return "Gson parssing errr";
 			}
 			
 			return "Msg Stored";

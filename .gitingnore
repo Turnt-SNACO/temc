@@ -1,4 +1,4 @@
 /server/Temc/.*
 .*
 !/.gitingnore
-/client/.temcrc
+client/.temcrc
