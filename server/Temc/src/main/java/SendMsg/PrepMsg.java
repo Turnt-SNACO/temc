@@ -10,7 +10,7 @@ public class PrepMsg {
 		Gson gson = new Gson();
 		System.out.println(jsonStr);
 		Request request = gson.fromJson(jsonStr, Request.class);
-		String uname = Request.getUname();
+		String uname = request.getUname();
 		try{
 			File file = new File(realPath+"/messages/"+uname);
 			BufferedReader br = new BufferedReader(new FileReader(file));
