@@ -9,5 +9,4 @@ public class Request {
 	public String getPass() {
 		return pass;
 	}
-
 }
