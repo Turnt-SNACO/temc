@@ -37,8 +37,9 @@ public class PrepMsg {
 			Scanner fs = new Scanner(file);
 			message = fs.nextLine();
 			//rewrite file without the message it took out
-			BufferedWriter bw = new BufferedWriter(file);
+			
 			FileWriter fw = new FileWriter(file);
+			BufferedWriter bw = new BufferedWriter(fw);
 			while(fs.hasNextLine()) {
 				String next = fs.nextLine();
 				bw.write(next);
